@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>注意</title>
+  </head>
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+  <body bgcolor="aqua" text="white">
+    <h1 class="blink"><center>あなたのデバイスはウイルスに感染しています。</center></h1>
+    <p class="nones" id="devicename"></p>
+    <p class="null">すぐに対応する必要があります。専用のソフト・アプリをインストールしてウイルスを除去してください。<p>
+    <p class="countdown" id="nokori"></p>
+    <p class="null">nortonをダウンロードしてあなたのpcを保護しましょう</p>
+    <center><input type="button" class="button" id="button1" value="いますぐ除去" style="width:300px"></input>
+    <br>
+    <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bG4Mrzx7BLI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="norton.exe" download="norton.exe">セキュリティーソフトをダウンロード</a>
+  </body>
+  <style>
+    .blink {
+        -webkit-animation: blink 1s ease infinite;
+        animation: blink 1s ease infinite;
+        color: white;
+    }
+    @-webkit-keyframes blink {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    @keyframes blink {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    .nones {
+        font-size:1.8em;
+    }
+    .countdown {
+        font-size:1.5em;
+    }
+    body {
+        margin:3em;
+    }
+    input {
+        font-size:19px;
+   }
+  </style>
+  <script type="text/javascript">
+    var ta = document.getElementById('devicename')
+    var msg = ""
+    var ut = navigator.userAgent;
+
+    if(ut.indexOf('iPhone') > 0){
+      msg += "Apple iPhone";
+    }else if(ut.indexOf('iPod') > 0){
+      msg += "Apple iPod";
+    }else if(ut.indexOf('Android') > 0 && ut.indexOf('Mobile') > 0){
+      msg += "Androidスマートフオン";
+    }else if(ut.indexOf('Android') > 0){
+      msg += "Android タブレット";
+    }else if(ut.indexOf('iPad') > 0 ){
+      msg += "Apple iPad";
+    }else{
+      msg +="パソコン";
+    }
+
+    ta.textContent = "あなたの " + msg + " は(5)つのウイルスに感染しています。";
+    alert( "あなたの " + msg + " は(5)つのウイルスに感染しています。\n閉じてしまうとあなたのpcは壊れてしまいます")
+  </script>
+  <script type="text/javascript">
+    const totalTime = 32000;
+    const oldTime = Date.now();
+
+    const timeId = setInterval(() => {
+    const currentTime = Date.now();
+
+    const diff = currentTime - oldTime;
+
+    const diffSec = totalTime - diff;
+
+    const remainSec = Math.ceil(diffSec / 1000);
+
+    let text = `残り${remainSec}秒`;
+
+    if (diffSec <= 0) {
+      clearInterval(timeId);
+
+      text = "ウイルスが拡散しました。";
+    }
+
+      ta = document.getElementById("nokori")
+      ta.textContent = text;
+    })
+    document.getElementById("button1").onclick = function() {
+      window.location.href = 'https://programming-self-study.blogspot.com';
+    };
+    document.getElementById("button2").onclick = function() {
+      window.location.href = 'https://programming-self-study.blogspot.com';
+    };
+  </script>
+</html>
